@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="http://connect.facebook.net/es_CL/all.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/facebook_authentication.js"></script>
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+            <span class="full_name">{{ user.get_full_name}}</span> (<a href="{% url spike.views.logout %}">Logout</a>)
+        {% else %}
+            <div id="fb-root"></div>
+            <script>
+                FB.init({ 
+                    appId:'{{ FACEBOOK_APP_ID }}', cookie:true, 
+                    status:true, xfbml:true 
+                });
+            </script>
+            <fb:login-button perms="email" onlogin="handle_facebook_login()">Entrar con Facebook</fb:login-button>
+        {% endif %}
+    </body>
+</html>
