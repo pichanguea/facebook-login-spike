@@ -74,7 +74,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'django_facebook_login_spike.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     j('templates')

@@ -31,5 +31,6 @@ Firefox support so far is broken for pop-ups
 
 Run the tests with
 
+    python manage.py runserver
     python manage.py test spike
 

@@ -14,7 +14,7 @@ class FacebookLoginTest(TestCase):
 
         driver.get(settings.SITE_URL)
 
-        login_button = driver.find_element_by_class_name('fb_button')
+        login_button = driver.find_element_by_class_name('fb_button_text')
         login_button.click()
 
         WebDriverWait(driver, 10).until(lambda d : len(d.window_handles) > 1)
@@ -41,3 +41,4 @@ class FacebookLoginTest(TestCase):
         
         full_name_container = driver.find_element_by_class_name('full_name')
         self.assertEqual(full_name_container.text, facebook_user_name)
+        driver.close()
